@@ -68,7 +68,7 @@ https://kafka.apache.org/documentation.html#topicconfigs
 ![Producer_configuration](Producer_conf2.png)
 
 
-### Kafka Consumer
+## Kafka Consumer
 
     * Kafka keeps track of what data a consumer has seen with offsets
 
@@ -111,7 +111,7 @@ https://kafka.apache.org/documentation.html#topicconfigs
 
     *
 
-# Delete Kafka Topics
+## Delete Kafka Topics
    * ensure that delete.topic.enable = true in server.properties file
    * kafka-topics --delete --topic "org.udacity.exercise3.purchases" --zookeeper localhost:2181
    * kafka-topics --list --zookeeper localhost:2181
