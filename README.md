@@ -20,7 +20,7 @@ Alternatively, to manually start each service in its own terminal, the equivalen
   ```
     $  /usr/bin/zookeeper-server-start ./etc/kafka/zookeeper.properties
      $  /usr/bin/kafka-server-start ./etc/kafka/server.properties
-     $  /usr/bin/schema-registry-start ./etc/schema-registry/schema-registry.properties 
+     $  /usr/bin/schema-registry-start ./etc/schema-registry/schema-registry.properties
    ```
 
 In case multiple Python3/Java are present, then run below and choose the right
@@ -28,3 +28,6 @@ In case multiple Python3/Java are present, then run below and choose the right
   sudo update-alternatives --config python3
   JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/  in sudo vi /etc/environment and then source /etc/environment
   ```
+
+
+https://kafka.apache.org/documentation.html#topicconfigs
