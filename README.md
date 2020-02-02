@@ -53,9 +53,51 @@ https://kafka.apache.org/documentation.html#topicconfigs
 
   * Configure compression on individual topics. compression will happen on client.
 
+  * Kafka producer libraries batch messages together for efficiency.  It is done for performance reasons.time, count and size of these batches are configurable.
+
   * https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md
 
+  *  https://kafka.apache.org/documentation/#producerconfigs
+
+  *  https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=serializer#producer
+
 ![Producer_configuration](Producer_conf.png)
+
+![Producer_configuration](Producer_conf1.png)
+
+![Producer_configuration](Producer_conf2.png)
+
+
+### Kafka Consumer
+
+    * Kafka keeps track of what data a consumer has seen with offsets
+
+    * Kafka stores offsets in a private internal topic
+
+    * By default, commits are made async and done automatically.
+
+    * Consumer groups rebalances when a consumer leaves or join the consumer group.
+    * client.id is optional for consumers
+    * group.id is mandatory for consumers.
+
+    ![Consumer](consumer.png)
+    ![Consumer](consumer_subscribe.png)
+
+    There are 2 methods to fetch data from kafka in consumer
+          * poll
+          * Consume: Consume takes the batch of messages and it returns
+                      the list of message
+
+    ![Consumer](consumer_poll_or_consume.png)
+
+    * Consumer config options : https://kafka.apache.org/documentation/#consumerconfigs
+
+    * Confluent_kafka_python Options: https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=serializer#consumer
+
+    * librdkafka consumer options shared with confluent_kafka_python: https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md
+
+
+
 ## Message Serialization
 
     * Process of transforming application internal data into a data model
