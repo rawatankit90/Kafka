@@ -31,3 +31,45 @@ In case multiple Python3/Java are present, then run below and choose the right
 
 
 https://kafka.apache.org/documentation.html#topicconfigs
+
+
+## Kafka Producer
+  * Synchronous Producer->
+                        * data is sent before application proceeds further. It
+                        should not be default choice but if there is a specific
+                        need.
+                        * In Python, flush function on python makes producer sync
+
+  * Async producer -> Its most common method. Max throughput of Kafka .
+                    It should be default choice.Producer can be configured on
+                    fire and forgot mechanism
+
+### Kafka producer properties
+  * client.id -> All producers should provide for better debugging experience
+
+  * enable.idempotennce for true in-order retry
+
+  * Configure retry to ensure data is delivered
+
+  * Configure compression on individual topics. compression will happen on client.
+
+  * https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md
+
+![Producer_configuration](Producer_conf.png)
+## Message Serialization
+
+    * Process of transforming application internal data into a data model
+    suitable for data stores is called as Serialization.
+
+    * eg. JSO, AVRO
+
+    * Kafka does not handle Serialization but kafka client library handles it.
+
+    * Never change Serialization on a topic.
+
+    *
+
+# Delete Kafka Topics
+   * ensure that delete.topic.enable = true in server.properties file
+   * kafka-topics --delete --topic "org.udacity.exercise3.purchases" --zookeeper localhost:2181
+   * kafka-topics --list --zookeeper localhost:2181
