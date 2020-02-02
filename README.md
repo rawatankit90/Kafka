@@ -70,15 +70,17 @@ https://kafka.apache.org/documentation.html#topicconfigs
 
 ## Kafka Consumer
 
-    * Kafka keeps track of what data a consumer has seen with offsets
+Kafka
 
-    * Kafka stores offsets in a private internal topic
+  * Kafka keeps track of what data a consumer has seen with offsets
 
-    * By default, commits are made async and done automatically.
+  * Kafka stores offsets in a private internal topic
 
-    * Consumer groups rebalances when a consumer leaves or join the consumer group.
-    * client.id is optional for consumers
-    * group.id is mandatory for consumers.
+  * By default, commits are made async and done automatically.
+
+  * Consumer groups rebalances when a consumer leaves or join the consumer group.
+  * client.id is optional for consumers
+  * group.id is mandatory for consumers.
 
     ![Consumer](consumer.png)
     ![Consumer](consumer_subscribe.png)
@@ -100,16 +102,16 @@ https://kafka.apache.org/documentation.html#topicconfigs
 
 ## Message Serialization
 
-    * Process of transforming application internal data into a data model
+   * Process of transforming application internal data into a data model
     suitable for data stores is called as Serialization.
 
-    * eg. JSO, AVRO
+   * eg. JSO, AVRO
 
-    * Kafka does not handle Serialization but kafka client library handles it.
+   * Kafka does not handle Serialization but kafka client library handles it.
 
-    * Never change Serialization on a topic.
+   * Never change Serialization on a topic.
 
-    *
+   *
 
 ## Delete Kafka Topics
    * ensure that delete.topic.enable = true in server.properties file
