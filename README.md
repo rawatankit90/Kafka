@@ -70,8 +70,6 @@ https://kafka.apache.org/documentation.html#topicconfigs
 
 ## Kafka Consumer
 
-Kafka
-
   * Kafka keeps track of what data a consumer has seen with offsets
 
   * Kafka stores offsets in a private internal topic
@@ -111,7 +109,72 @@ Kafka
 
    * Never change Serialization on a topic.
 
-   *
+## Data Scehmas and Apache Avro
+
+![Data Schema Terms Glossary](data_schema_terms.png)
+![Data Schema](data_schema_information.png)
+![Data Schema benefits](data_schema_benefit.png)
+
+## Apache AVRO
+* Avro: Data Serialization system that uses binary compression.
+* AVRO apache documentation
+    https://avro.apache.org/docs/1.8.2/spec.html#schemas
+* name, type, fields are mandatory
+* type must be the first
+
+* confluent_kafka_python Avro Producer : https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=partition#confluent_kafka.avro.AvroProducer
+* confluent_kafka_python Avro Consumer : https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=partition#confluent_kafka.avro.AvroConsumer
+
+* ![Data Schema benefits](avro_basic.png)
+* ![Avro Types](avro_type.png)
+
+## Schema Registry
+
+* Confluent Schema Registry is an open-source tool that provides centralized Avro Schema storage.
+* Schemas only need to be sent to Schema Registry once
+* Schema registry donot support deletes by default
+* Has an HTTP ReST interface
+* Webserver build on JVM.
+* Stores all of it state in Kafka topics, not a database
+* Exposes an HTTP web-server with a REST API
+* Can Run standalone or clustered with many nodes
+* Uses zookeeper to choose leader in cluster mode
+* Many Kafka clients natively support Schema Registry interactions for you
+* Reduces network overhead, allowing producers and consumers to register schemas one time
+* Simplifies using Avro, reducing the barrier to entry for developers
+* Uses a Kafka topic to store state
+* Deployed as one or more web servers, with one leader
+* confluent_kafka_python Avro and Schema Registry support : https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=partition#module-confluent_kafka.avro
+
+* Schema Registry Overview https://docs.confluent.io/current/schema-registry/index.html
+* Schema Registry HTTP API Documentation https://docs.confluent.io/current/schema-registry/develop/api.html
+
+
+* ![Schema Registry](schema_registry.png)
+
+* ![Schema Registry Info](schema_registry_info.png)
+
+* ![schema_compatiblity](schema_compatiblity.png)
+
+* ![backward_schema_compatiblity](backward_compatibility.png)
+* ![forward_compatibility](forward_compatibility.png)
+* ![full_compatibility](full_compatibility.png)
+* ![no_compatiblity](no_compatibility.png)
+
+
+
+
+
+
+## Confluent AVRO
+
+* sudo apt-get install python3.7-dev
+* pip3 install "confluent-kafka[avro]"
+
+
+## Kafka Console Consumer
+kafka-console-consumer --topic "com.udacity.lesson3.exercise2.clicks" --bootstrap-server PLAINTEXT://localhost:9092
+
 
 ## Delete Kafka Topics
    * ensure that delete.topic.enable = true in server.properties file
