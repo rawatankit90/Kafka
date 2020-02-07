@@ -125,8 +125,8 @@ https://kafka.apache.org/documentation.html#topicconfigs
 * confluent_kafka_python Avro Producer : https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=partition#confluent_kafka.avro.AvroProducer
 * confluent_kafka_python Avro Consumer : https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=partition#confluent_kafka.avro.AvroConsumer
 
-* ![Data Schema benefits](avro_basic.png)
-* ![Avro Types](avro_type.png)
+ ![Data Schema benefits](avro_basic.png)
+ ![Avro Types](avro_type.png)
 
 ## Schema Registry
 
@@ -150,20 +150,16 @@ https://kafka.apache.org/documentation.html#topicconfigs
 * Schema Registry HTTP API Documentation https://docs.confluent.io/current/schema-registry/develop/api.html
 
 
-* ![Schema Registry](schema_registry.png)
+![Schema Registry](schema_registry.png)
 
-* ![Schema Registry Info](schema_registry_info.png)
+![Schema Registry Info](schema_registry_info.png)
 
-* ![schema_compatiblity](schema_compatiblity.png)
+![schema_compatiblity](schema_compatiblity.png)
 
-* ![backward_schema_compatiblity](backward_compatibility.png)
-* ![forward_compatibility](forward_compatibility.png)
-* ![full_compatibility](full_compatibility.png)
-* ![no_compatiblity](no_compatibility.png)
-
-
-
-
+![backward_schema_compatiblity](backward_compatibility.png)
+![forward_compatibility](forward_compatibility.png)
+![full_compatibility](full_compatibility.png)
+![no_compatiblity](no_compatibility.png)
 
 
 ## Confluent AVRO
@@ -180,3 +176,44 @@ kafka-console-consumer --topic "com.udacity.lesson3.exercise2.clicks" --bootstra
    * ensure that delete.topic.enable = true in server.properties file
    * kafka-topics --delete --topic "org.udacity.exercise3.purchases" --zookeeper localhost:2181
    * kafka-topics --list --zookeeper localhost:2181
+
+
+## Kafka Connect
+
+* Kafka Connect is a web server and framework for integrating Kafka with external data sources such as SQL databases, log files, and HTTP endpoints
+
+* Built in Scala and Java.
+
+* Built on JVM.
+
+* When Kafka connect web server boots up, it locate and loads the Kafka plug-in JAR
+
+* kafka connect plugin are written in a JVM like language like Java
+
+* Kafka connect uses kafka to store its CONFIGURATION and track its internal state
+
+* it can be run as a single node or as a cluster.
+
+* https://docs.confluent.io/current/connect/concepts.html
+
+* Connect is entirely managed through a REST API
+
+### Kafka Connect Connector Plugins
+
+* Here are some popular Kafka Connect plugins:
+
+    * Confluent Kafka Connect Plugin Search
+    * Amazon S3 Connector
+    * SQL JDBC Connector
+    * HDFS Connector
+    * HTTP Connector
+
+* confluent start connect to start from Confluent CLI
+
+
+
+![Kafka_connect_terms](kafka_connect.png)
+
+![Kafka Connect Diagram](kafka_connect_diagram.png)
+
+![Kafka_connect_components](Kafka_connect_components.png)
