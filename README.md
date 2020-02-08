@@ -198,15 +198,61 @@ kafka-console-consumer --topic "com.udacity.lesson3.exercise2.clicks" --bootstra
 
 * Connect is entirely managed through a REST API
 
-### Kafka Connect Connector Plugins
+* Check Kafka connect is up
+```
+curl http://localhost:8083/ | python -m json.tool
+```
+* To check plugins available
 
+```
+curl http://localhost:8083/connector-plugins | python -m json.tool
+```
+
+* To check Connector task staus
+```
+curl http://localhost:8083/connectors/first-connector/status | python -m json.tool
+
+```
+
+* To detail connectors
+```
+curl http://localhost:8083/connectors/first-connector/ | python -m json.tool
+```
+
+* To pause:
+```
+curl -X PUT http://localhost:8083/connectors/first-connector/pause
+```
+
+* To restart:
+
+```
+curl -X POST http://localhost:8083/connectors/first-connector/restart
+```
+
+* To Deleting connectors
+
+Finally, to delete your connector:
+```
+curl -X DELETE http://localhost:8083/connectors/first-connector
+### Kafka Connect Connector Plugins
+```
 * Here are some popular Kafka Connect plugins:
 
     * Confluent Kafka Connect Plugin Search
+      https://www.confluent.io/hub/?utm_medium=sem&utm_source=google&utm_campaign=ch.sem_br.brand_tp.prs_tgt.confluent-brand_mt.mbm_rgn.namer_lng.eng_dv.all&utm_term=%2Bconfluent%20%2Bconnect&creative=357969856550&device=c&placement=&gclid=Cj0KCQjwp5_qBRDBARIsANxdcikzhat8UGdi8TVVfxhSATPhQqLibR81tnJC0lVGsPaRubygAORySDEaAhrbEALw_wcB
+
     * Amazon S3 Connector
+    https://www.confluent.io/hub/confluentinc/kafka-connect-s3
+
     * SQL JDBC Connector
-    * HDFS Connector
+    https://www.confluent.io/hub/confluentinc/kafka-connect-jdbc
+
+    * HDFS Connectorca
+    https://www.confluent.io/hub/confluentinc/kafka-connect-hdfs
+
     * HTTP Connector
+    https://www.confluent.io/hub/confluentinc/kafka-connect-http
 
 * confluent start connect to start from Confluent CLI
 
@@ -217,3 +263,8 @@ kafka-console-consumer --topic "com.udacity.lesson3.exercise2.clicks" --bootstra
 ![Kafka Connect Diagram](kafka_connect_diagram.png)
 
 ![Kafka_connect_components](Kafka_connect_components.png)
+
+
+## Kafka Connect troubleshooting tips
+
+![kafka-connect-troubleshoot](kafka-connect-troubleshoot.png)
